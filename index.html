@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engiproof - Digital Solutions & Security Systems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --primary: #2E86AB;
+            --primary-dark: #1A5F7A;
+            --primary-light: #57A6C7;
+            --secondary: #FF6B6B;
+            --accent: #4ECDC4;
+            --dark: #0A1929;
+            --dark-light: #132F4C;
+            --light: #FFFFFF;
+            --gray: #8E9AAF;
+            --success: #4CAF50;
+            --warning: #FF9800;
+            --danger: #F44336;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --gradient-dark: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            --bg-color: #f5f7fa;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Dark Theme */
+        .dark-theme {
+            --bg-color: #0A1929;
+            --text-color: #ffffff;
+            --card-bg: #132F4C;
+            --dark-light: #8E9AAF;
+            --header-bg: rgba(10, 25, 41, 0.95);
+        }
+
+        /* Blue Theme */
+        .blue-theme {
+            --primary: #1E40AF;
+            --primary-dark: #1E3A8A;
+            --primary-light: #3B82F6;
+            --accent: #06B6D4;
+            --bg-color: #EFF6FF;
+            --text-color: #1E3A8A;
+            --card-bg: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        .dark-theme.blue-theme {
+            --bg-color: #0A1929;
+            --text-color: #ffffff;
+            --card-bg: #132F4C;
+            --dark-light: #8E9AAF;
+            --header-bg: rgba(10, 25, 41, 0.95);
+        }
+
+        /* Green Theme */
+        .green-theme {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --primary-light: #10B981;
+            --accent: #34D399;
+            --bg-color: #ECFDF5;
+            --text-color: #065F46;
+            --card-bg: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        .dark-theme.green-theme {
+            --bg-color: #0A1929;
+            --text-color: #ffffff;
+            --card-bg: #132F4C;
+            --dark-light: #8E9AAF;
+            --header-bg: rgba(10, 25, 41, 0.95);
+        }
+
+        /* Purple Theme */
+        .purple-theme {
+            --primary: #7C3AED;
+            --primary-dark: #5B21B6;
+            --primary-light: #8B5CF6;
+            --accent: #A78BFA;
+            --bg-color: #F5F3FF;
+            --text-color: #5B21B6;
+            --card-bg: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        .dark-theme.purple-theme {
+            --bg-color: #0A1929;
+            --text-color: #ffffff;
+            --card-bg: #132F4C;
+            --dark-light: #8E9AAF;
+            --header-bg: rgba(10, 25, 41, 0.95);
+        }
+
+        /* ===== BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            color: var(--primary-dark);
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--dark-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(46, 134, 171, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary), #E55A28);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+
+        /* ===== LOADING SCREEN ===== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--header-bg);
+            backdrop-filter: blur(20px);
+            z-index: 900;
+            padding: 15px 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-theme header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-weight: 800;
+            font-size: 1.2rem;
+            overflow: hidden;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .dark-theme .nav-link {
+            color: var(--light);
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .dark-theme .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Theme Controls */
+        .theme-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 30px;
+        }
+
+        .theme-btn {
+            background: none;
+            border: none;
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark-theme .theme-btn {
+            color: var(--light);
+        }
+
+        .theme-btn:hover {
+            color: var(--primary);
+            background: rgba(46, 134, 171, 0.1);
+        }
+
+        .dark-theme .theme-btn:hover {
+            color: var(--accent);
+            background: rgba(78, 205, 196, 0.1);
+        }
+
+        .theme-dropdown {
+            position: relative;
+        }
+
+        .theme-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dark-theme .theme-options {
+            background: var(--card-bg);
+        }
+
+        .theme-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-option:hover {
+            background: rgba(46, 134, 171, 0.1);
+        }
+
+        .theme-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .theme-default .theme-color {
+            background: linear-gradient(135deg, #2E86AB, #4ECDC4);
+        }
+
+        .theme-blue .theme-color {
+            background: linear-gradient(135deg, #1E40AF, #3B82F6);
+        }
+
+        .theme-green .theme-color {
+            background: linear-gradient(135deg, #059669, #10B981);
+        }
+
+        .theme-purple .theme-color {
+            background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+        }
+
+        .theme-dropdown:hover .theme-options {
+            display: flex;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .dark-theme .menu-toggle {
+            color: var(--light);
+        }
+
+        .menu-toggle:hover {
+            color: var(--primary);
+            background: rgba(46, 134, 171, 0.1);
+        }
+
+        .dark-theme .menu-toggle:hover {
+            color: var(--accent);
+            background: rgba(78, 205, 196, 0.1);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(195,207,226,0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            margin-top: 80px;
+        }
+
+        .dark-theme .hero {
+            background: linear-gradient(135deg, rgba(10,25,41,0.9) 0%, rgba(19,47,76,0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            color: var(--primary-dark);
+        }
+
+        .dark-theme .hero-content h1 {
+            color: var(--light);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            color: var(--dark-light);
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        #services {
+            background: var(--card-bg);
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-theme .service-card {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .dark-theme .service-content h3 {
+            color: var(--light);
+        }
+
+        .service-content p {
+            color: var(--dark-light);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .service-options {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .service-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: rgba(46, 134, 171, 0.05);
+            border-radius: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .dark-theme .service-option {
+            background: rgba(46, 134, 171, 0.1);
+        }
+
+        .service-option:hover {
+            background: rgba(46, 134, 171, 0.1);
+            transform: translateX(5px);
+        }
+
+        .dark-theme .service-option:hover {
+            background: rgba(46, 134, 171, 0.2);
+        }
+
+        .service-option i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* ===== ORDER OPTIONS SECTION ===== */
+        #order-options {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .dark-theme #order-options {
+            background: linear-gradient(135deg, #0f1c2d 0%, #1a2d42 100%);
+        }
+
+        .order-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .order-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-theme .order-card {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .order-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .order-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .order-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .dark-theme .order-card h3 {
+            color: var(--light);
+        }
+
+        .order-card p {
+            color: var(--dark-light);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        #projects {
+            background: var(--card-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-theme .project-card {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 35px;
+        }
+
+        .project-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .project-content p {
+            color: var(--dark-light);
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background: rgba(76, 175, 80, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .project-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .project-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+            color: var(--dark-light);
+        }
+
+        .project-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* ===== ORDER TRACKING ===== */
+        .order-tracking {
+            background: var(--card-bg);
+            padding: 60px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            margin-top: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-theme .order-tracking {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tracking-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            color: var(--dark-light);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .dark-theme .form-control {
+            background: rgba(19, 47, 76, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(46, 134, 171, 0.2);
+            background: white;
+        }
+
+        .dark-theme .form-control:focus {
+            background: var(--card-bg);
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .whatsapp-info {
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .whatsapp-info i {
+            color: #25D366;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-info h4 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .dark-theme .whatsapp-info h4 {
+            color: var(--light);
+        }
+
+        .whatsapp-info p {
+            color: var(--dark-light);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        /* ===== ORDER STATUS ===== */
+        .order-status {
+            margin-top: 50px;
+            display: none;
+        }
+
+        .status-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .status-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 25px;
+            height: 100%;
+            width: 3px;
+            background: var(--gradient);
+        }
+
+        .status-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .status-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 40px;
+            z-index: 2;
+            border: 3px solid var(--primary);
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .dark-theme .status-icon {
+            background: var(--card-bg);
+        }
+
+        .status-icon.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .status-icon.completed {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .status-content {
+            flex: 1;
+            padding-bottom: 30px;
+        }
+
+        .status-content h4 {
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+            font-size: 1.4rem;
+        }
+
+        .dark-theme .status-content h4 {
+            color: var(--light);
+        }
+
+        .status-content p {
+            color: var(--dark-light);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .status-date {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--primary-dark);
+            padding: 80px 0 30px;
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 25px;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: var(--transition);
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        /* ===== BACK TO TOP BUTTON ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            z-index: 99;
+            font-size: 1.5rem;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(46, 134, 171, 0.4);
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 1200px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Navigation for tablets */
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--header-bg);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: 20px 0;
+            }
+            
+            .nav-link {
+                font-size: 1.3rem;
+            }
+
+            .theme-controls {
+                margin-left: 0;
+                margin-top: 20px;
+                flex-direction: row;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+            
+            .hero {
+                margin-top: 70px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .order-tracking {
+                padding: 40px 30px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .nav-menu {
+                width: 100%;
+            }
+
+            .logo span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="default-theme">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="logo">
+                    <div class="logo-img">
+                        <!-- Logo would go here - using text for now -->
+                        <span>E</span>
+                    </div>
+                    <span>ENGPROOF</span>
+                </a>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">
+                            <i class="fas fa-cogs"></i>
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#order-options" class="nav-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>How to Order</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tracking" class="nav-link">
+                            <i class="fas fa-truck"></i>
+                            <span>Track Order</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="theme-controls">
+                    <button class="theme-btn" id="darkModeToggle" title="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <div class="theme-dropdown">
+                        <button class="theme-btn" id="themeToggle" title="Change Theme">
+                            <i class="fas fa-palette"></i>
+                        </button>
+                        <div class="theme-options">
+                            <div class="theme-option theme-default" data-theme="default">
+                                <div class="theme-color"></div>
+                                <span>Default</span>
+                            </div>
+                            <div class="theme-option theme-blue" data-theme="blue">
+                                <div class="theme-color"></div>
+                                <span>Blue</span>
+                            </div>
+                            <div class="theme-option theme-green" data-theme="green">
+                                <div class="theme-color"></div>
+                                <span>Green</span>
+                            </div>
+                            <div class="theme-option theme-purple" data-theme="purple">
+                                <div class="theme-color"></div>
+                                <span>Purple</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Professional Digital Solutions & Security Systems</h1>
+                <p>We provide cutting-edge web design, digital ID cards, CCTV installation, and event management services with unparalleled quality and innovation.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn">Our Services</a>
+                    <a href="#contact" class="btn btn-secondary">Get Started Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Services</h2>
+                <p>Comprehensive digital and security solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <!-- Web Design Service -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Web Design">
+                    </div>
+                    <div class="service-content">
+                        <h3>Web Design & Development</h3>
+                        <p>Custom websites and web applications with modern UI/UX design, responsive layouts, and optimal performance for your business.</p>
+                        
+                        <div class="service-options">
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Basic Website (5 Pages)</span>
+                            </div>
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>E-commerce Platform</span>
+                            </div>
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Custom Web Application</span>
+                            </div>
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Website Maintenance</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-price">Starting at ₹15,000</div>
+                        <button class="btn" style="width: 100%;" onclick="orderService('Web Design & Development')">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Digital ID Cards Service -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Digital ID Cards">
+                    </div>
+                    <div class="service-content">
+                        <h3>Digital ID Cards</h3>
+                        <p>Secure and efficient digital identification systems with advanced features and seamless integration for institutions.</p>
+                        
+                        <div class="service-options">
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Student ID Cards</span>
+                            </div>
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Employee ID System</span>
+                            </div>
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Access Control Integration</span>
+                            </div>
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mobile App Integration</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-price">Starting at ₹8,000</div>
+                        <button class="btn" style="width: 100%;" onclick="orderService('Digital ID Cards')">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- CCTV Installation Service -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25856cd25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="CCTV Installation">
+                    </div>
+                    <div class="service-content">
+                        <h3>CCTV Installation</h3>
+                        <p>Professional surveillance solutions with remote monitoring, analytics, and high-definition video quality for complete security.</p>
+                        
+                        <div class="service-options">
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Home Security System</span>
+                            </div>
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Office/Commercial CCTV</span>
+                            </div>
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Remote Monitoring Setup</span>
+                            </div>
+                            <div class="service-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Maintenance & Support</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-price">Starting at ₹12,000</div>
+                        <button class="btn" style="width: 100%;" onclick="orderService('CCTV Installation')">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Options Section -->
+    <section id="order-options">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>How to Order</h2>
+                <p>Simple steps to get started with our services</p>
+            </div>
+            <div class="order-grid">
+                <div class="order-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="order-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Select Service</h3>
+                    <p>Choose from our range of professional services that best fits your requirements</p>
+                </div>
+                <div class="order-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="order-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Consultation</h3>
+                    <p>Get free consultation to discuss your specific needs and requirements</p>
+                </div>
+                <div class="order-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="order-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Project Execution</h3>
+                    <p>Our team works diligently to deliver high-quality results on time</p>
+                </div>
+                <div class="order-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="order-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Delivery & Support</h3>
+                    <p>Get your project delivered with ongoing support and maintenance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Completed Projects</h2>
+                <p>Successfully delivered solutions that have helped clients achieve their goals</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Bethany Convent School">
+                    </div>
+                    <div class="project-content">
+                        <h3>Bethany Convent School</h3>
+                        <p>Comprehensive digital solution including website, student management system, and digital ID cards for both Indus and Mandideep campuses.</p>
+                        <span class="project-status status-complete">Completed</span>
+                        <ul class="project-list">
+                            <li>Responsive School Website</li>
+                            <li>Student Management Portal</li>
+                            <li>Digital ID Card System</li>
+                            <li>Parent Communication Module</li>
+                            <li>Attendance Tracking System</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate Security System">
+                    </div>
+                    <div class="project-content">
+                        <h3>Corporate Office Security System</h3>
+                        <p>Advanced CCTV installation with remote monitoring and access control for a corporate office in Bhopal.</p>
+                        <span class="project-status status-complete">Completed</span>
+                        <ul class="project-list">
+                            <li>16 Channel HD CCTV System</li>
+                            <li>Remote Mobile Monitoring</li>
+                            <li>Access Control System</li>
+                            <li>24/7 Recording & Backup</li>
+                            <li>Motion Detection Alerts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Tracking Section -->
+    <section id="tracking">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Order Tracking</h2>
+                <p>Track your order status in real-time with our advanced tracking system</p>
+            </div>
+            <div class="order-tracking" data-aos="fade-up" data-aos-delay="100">
+                <h3 style="text-align: center; margin-bottom: 40px; color: var(--primary-dark); font-size: 1.8rem;">Track Your Order</h3>
+                <div class="tracking-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="orderNumber" placeholder="Enter Order Number (e.g., 7489741225)" value="7489741225">
+                    </div>
+                    <button class="btn" style="width: 100%;" onclick="trackOrder()">Track Order</button>
+                </div>
+                <div id="orderStatus" class="order-status">
+                    <h4 style="text-align: center; margin-bottom: 50px; color: var(--primary-dark); font-size: 1.6rem;">Order #7489741225 Status</h4>
+                    <div class="status-timeline">
+                        <div class="status-item">
+                            <div class="status-icon completed">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="status-content">
+                                <h4>Order Received</h4>
+                                <p>Your order has been received and is being processed by our team</p>
+                                <div class="status-date">Completed on: Oct 15, 2023</div>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon completed">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="status-content">
+                                <h4>Design Phase</h4>
+                                <p>Initial design concepts and wireframes are being created and reviewed</p>
+                                <div class="status-date">Completed on: Oct 22, 2023</div>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon active">
+                                <i class="fas fa-cog fa-spin"></i>
+                            </div>
+                            <div class="status-content">
+                                <h4>Development</h4>
+                                <p>Website development is in progress - currently 75% complete</p>
+                                <div class="status-date">Expected completion: Nov 15, 2023</div>
+                                <div class="progress-container" style="margin-top: 20px;">
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="status-content">
+                                <h4>Testing & Quality Assurance</h4>
+                                <p>Rigorous testing to ensure optimal performance and user experience</p>
+                                <div class="status-date">Pending</div>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="status-content">
+                                <h4>Delivery</h4>
+                                <p>Final delivery and deployment of your completed project</p>
+                                <div class="status-date">Pending</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for inquiries, quotes, or project discussions</p>
+            </div>
+            <div class="contact-form" data-aos="fade-up" data-aos-delay="100">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="service" required>
+                            <option value="">Select Service</option>
+                            <option value="Web Design & Development">Web Design & Development</option>
+                            <option value="Digital ID Cards">Digital ID Cards</option>
+                            <option value="CCTV Installation">CCTV Installation</option>
+                            <option value="Event Management">Event Management</option>
+                            <option value="Mobile Applications">Mobile Applications</option>
+                            <option value="Cloud Solutions">Cloud Solutions</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="message" placeholder="Your Message" rows="6" required></textarea>
+                    </div>
+                    <button type="button" class="btn btn-whatsapp" style="width: 100%;" onclick="sendToWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                    </button>
+                </form>
+                
+                <div class="whatsapp-info">
+                    <i class="fab fa-whatsapp"></i>
+                    <h4>Direct WhatsApp Contact</h4>
+                    <p>You can also contact us directly on WhatsApp for immediate assistance</p>
+                    <a href="https://wa.me/917489741225?text=Hello%20Engiproof%2C%20I%20would%20like%20to%20inquire%20about%20your%20services" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Bhopal, Madhya Pradesh, India</p>
+                    <p><i class="fas fa-phone"></i> +91 7489741225</p>
+                    <p><i class="fas fa-envelope"></i> engproof25@gmail.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#services">Services</a></p>
+                    <p><a href="#order-options">How to Order</a></p>
+                    <p><a href="#projects">Projects</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <p>Web Design & Development</p>
+                    <p>Digital ID Cards</p>
+                    <p>CCTV Installation</p>
+                    <p>Event Management</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and offers</p>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                    </div>
+                    <button class="btn">Subscribe</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Engiproof Protect Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 1500);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.pageYOffset > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            
+            // Change icon based on menu state
+            if (navMenu.classList.contains('active')) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Theme Switching
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const themeOptions = document.querySelectorAll('.theme-option');
+        
+        // Check for saved theme preference or use default
+        const savedTheme = localStorage.getItem('theme') || 'default';
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        
+        // Apply saved theme
+        document.body.className = `${savedTheme}-theme`;
+        if (isDarkMode) {
+            document.body.classList.add('dark-theme');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        // Dark Mode Toggle
+        darkModeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            
+            if (document.body.classList.contains('dark-theme')) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('darkMode', 'true');
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('darkMode', 'false');
+            }
+        });
+        
+        // Theme Selection
+        themeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const theme = this.getAttribute('data-theme');
+                document.body.className = `${theme}-theme`;
+                
+                // Preserve dark mode state
+                if (isDarkMode) {
+                    document.body.classList.add('dark-theme');
+                }
+                
+                localStorage.setItem('theme', theme);
+            });
+        });
+
+        // Order Service Function
+        function orderService(serviceName) {
+            const whatsappMessage = `
+Hello Engiproof,
+
+I would like to order the following service:
+
+*Service:* ${serviceName}
+
+Please contact me with more details and pricing information.
+
+Thank you!
+            `.trim();
+            
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/917489741225?text=${encodedMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Order Tracking Function
+        function trackOrder() {
+            const orderNumber = document.getElementById('orderNumber').value;
+            const orderStatus = document.getElementById('orderStatus');
+            
+            if (orderNumber === '7489741225') {
+                orderStatus.style.display = 'block';
+                
+                // Animate progress bars
+                const progressBars = document.querySelectorAll('#orderStatus .progress');
+                progressBars.forEach((bar) => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 300);
+                });
+                
+                // Scroll to order status
+                setTimeout(() => {
+                    orderStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 500);
+            } else {
+                alert('Order not found. Please check your order number.');
+            }
+        }
+
+        // WhatsApp Integration Function
+        function sendToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Validate form
+            if (!name || !email || !subject || !service || !message) {
+                alert('Please fill in all fields before sending.');
+                return;
+            }
+            
+            // Format the message for WhatsApp
+            const whatsappMessage = `
+Hello Engiproof,
+
+I would like to inquire about your services:
+
+*Name:* ${name}
+*Email:* ${email}
+*Subject:* ${subject}
+*Service Interested In:* ${service}
+*Message:* ${message}
+
+Please get back to me at your earliest convenience.
+
+Thank you!
+            `.trim();
+            
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/917489741225?text=${encodedMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappURL, '_blank');
+            
+            // Optional: Clear the form after sending
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+</body>
+</html>

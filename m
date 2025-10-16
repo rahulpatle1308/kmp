@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engiproof Protect Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">ENGPROOF</div>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#available"><i class="fas fa-list-alt"></i> Available Projects</a></li>
+            <li><a href="#complete"><i class="fas fa-check-circle"></i> Complete Projects</a></li>
+            <li><a href="#progress"><i class="fas fa-tasks"></i> Projects in Progress</a></li>
+            <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <img src="img/logo.png" alt="ENGPROOF Logo">
+                <span>ENGPROOF</span>
+            </div>
+            <nav class="navbar">
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#available">Projects</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </header>
+
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Innovative Security & Digital Solutions</h1>
+                <p>Providing cutting-edge web applications, digital ID systems, and CCTV solutions for modern security needs.</p>
+                <a href="#available" class="btn">Explore Our Projects</a>
+            </div>
+        </section>
+
+        <section id="available">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Available Projects</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Web Application</h3>
+                            <p>Custom web applications tailored to your specific business requirements with modern UI/UX design.</p>
+                            <span class="project-status status-available">Available</span>
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>Completion</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Static Site</h3>
+                            <p>Fast, secure, and SEO-optimized static websites for businesses looking for an online presence.</p>
+                            <span class="project-status status-available">Available</span>
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>Completion</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Dynamic Site</h3>
+                            <p>Interactive websites with database integration, user authentication, and real-time updates.</p>
+                            <span class="project-status status-available">Available</span>
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>Completion</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="complete" style="background: rgba(0, 0, 0, 0.3);">
+    <div class="container">
+        <div class="section-title">
+            <h2>Complete Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Bethany Convent School Bhopal (Indus, Mandideep)</h3>
+                    <p>Comprehensive digital solution including website, student management system, and digital ID cards.</p>
+                    <span class="project-status status-complete">Completed</span>
+                    <ul class="project-list">
+                        <li>Responsive Website</li>
+                        <li>Student Portal</li>
+                        <li>Digital ID System</li>
+                    </ul>
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Custom Web Application</h3>
+                    <p>Developed a web application tailored to specific client needs, enhancing their operational efficiency.</p>
+                    <span class="project-status status-complete">Completed</span>
+                    <ul class="project-list">
+                        <li>User Authentication</li>
+                        <li>Data Management</li>
+                        <li>Reporting Tools</li>
+                    </ul>
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Bethany Convent School Bhopal (Mandideep)</h3>
+                    <p>Advanced school management system with attendance tracking and parent communication portal.</p>
+                    <span class="project-status status-complete">Completed</span>
+                    <ul class="project-list">
+                        <li>Management System</li>
+                        <li>Attendance Module</li>
+                        <li>Parent Portal</li>
+                    </ul>
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- About Us Section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Us</h2>
+                </div>
+                <div class="about-content">
+                    <p>Welcome to Engiproof Protect Solutions, where innovation meets security. We are dedicated to providing cutting-edge solutions in web applications, digital ID systems, and CCTV technologies, tailored to meet the evolving needs of modern businesses and educational institutions.</p>
+                    <p>Our mission is to empower our clients with robust, reliable, and user-friendly digital tools that enhance security, streamline operations, and foster growth. With a focus on quality and customer satisfaction, we strive to be your trusted partner in navigating the digital landscape.</p>
+                    <p>At Engiproof, we believe in the power of technology to create safer, more efficient environments. Our team of experts is committed to delivering excellence in every project, ensuring that our solutions not only meet but exceed expectations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" style="background: rgba(0, 0, 0, 0.3);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Web Development</h3>
+                        <p>Custom web applications and sites built with modern technologies, responsive design, and optimal performance.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-id-card"></i>
+                        <h3>Digital ID Solutions</h3>
+                        <p>Secure and efficient digital identification systems for institutions, with advanced features and easy integration.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-video"></i>
+                        <h3>CCTV Systems</h3>
+                        <p>State-of-the-art surveillance solutions with remote monitoring, analytics, and high-definition video quality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Bhopal, Madhya Pradesh, India</p>
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-envelope"></i> info@engiproof.com</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <p><a href="#home">Home</a></p>
+                        <p><a href="#available">Available Projects</a></p>
+                        <p><a href="#complete">Complete Projects</a></p>
+                        <p><a href="#services">Our Services</a></p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Our Services</h3>
+                        <p>Web Development</p>
+                        <p>Digital ID Solutions</p>
+                        <p>CCTV Systems</p>
+                        <p>Security Consultancy</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2023 Engiproof Protect Solutions. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 1500);
+        });
+
+        // Sidebar Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+
+        menuToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            mainContent.classList.toggle('shifted');
+            menuToggle.innerHTML = sidebar.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close sidebar when clicking on a link
+        const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 992) {
+                    sidebar.classList.remove('active');
+                    mainContent.classList.remove('shifted');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Scroll Animations
+        function animateOnScroll() {
+            const aboutContent = document.querySelector('.about-content');
+            const serviceCards = document.querySelectorAll('.service-card');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            // About content animation
+            if (isElementInViewport(aboutContent)) {
+                aboutContent.classList.add('visible');
+            }
+            
+            // Service cards animation
+            serviceCards.forEach(card => {
+                if (isElementInViewport(card)) {
+                    card.classList.add('visible');
+                }
+            });
+            
+            // Project cards animation
+            projectCards.forEach(card => {
+                if (isElementInViewport(card)) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
+                rect.bottom >= 0
+            );
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Create Floating Elements
+        const floatingElements = document.getElementById('floatingElements');
+        
+        function createFloatingElements() {
+            const colors = [
+                'rgba(26, 115, 232, 0.1)',
+                'rgba(255, 152, 0, 0.1)',
+                'rgba(76, 175, 80, 0.1)',
+                'rgba(156, 39, 176, 0.1)'
+            ];
+            
+            for (let i = 0; i < 15; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                
+                const size = Math.random() * 60 + 20;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                element.style.background = color;
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.animationDelay = `${Math.random() * 15}s`;
+                element.style.animationDuration = `${Math.random() * 20 + 15}s`;
+                
+                floatingElements.appendChild(element);
+            }
+        }
+
+        createFloatingElements();
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Set active navigation link based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.sidebar-menu a, .nav-links a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
